@@ -1,0 +1,26 @@
+{
+  "name": "cycle-future",
+  "version": "1.0.0",
+  "description": "A simple library for using monadic futures in Cycle.js applications",
+  "main": "dist/index.js",
+  "author": "Jean-Louis Leysens",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "ava-ts ./test.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "fluture": "8.0.2"
+  },
+  "peerDependencies": {
+    "@cycle/run": "4.4.0",
+    "xstream": "11.7.0"
+  },
+  "devDependencies": {
+    "ava": "0.25.0",
+    "ava-ts": "0.24.6",
+    "ts-node": "7.0.0",
+    "typescript": "2.9.2"
+  }
+}
