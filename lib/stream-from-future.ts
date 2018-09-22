@@ -1,4 +1,4 @@
-import { Future, Cancel, isFuture } from "fluture";
+import { Cancel } from "fluture";
 import xs, { Producer } from "xstream";
 import { adapt } from "@cycle/run/lib/adapt";
 import { DriverInput } from './interfaces';

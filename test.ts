@@ -1,4 +1,4 @@
-import {streamFromFuture, makeHTTPDriver, HttpSource} from './'
+import {streamFromFuture, makeFutureHTTPDriver, HttpSource} from './'
 import ava from 'ava';
 import {isFuture, Future} from 'fluture';
 import {Stream} from 'xstream';
@@ -20,7 +20,7 @@ ava.cb('makeHTTPDriver', t => {
   const future = Future.of(null);
   const category = 'nulls';
   const null$ = Stream.of({future, category});
-  const driver = makeHTTPDriver();
+  const driver = makeFutureHTTPDriver();
   const source = driver(null$);
   const null$from$$ = source.select(category).flatten();
 
