@@ -1,8 +1,8 @@
-import { Stream, MemoryStream } from 'xstream';
-import { adapt } from '@cycle/run/lib/adapt';
-import { Driver } from '@cycle/run';
-import { streamFromFuture } from './stream-from-future';
-import { DriverInput } from './interfaces';
+import {Stream, MemoryStream} from 'xstream';
+import {adapt} from '@cycle/run/lib/adapt';
+import {Driver} from '@cycle/run';
+import {streamFromFutureForDriver} from './stream-from-future';
+import {DriverInput} from './interfaces';
 
 export class HttpSource {
   constructor(
@@ -20,7 +20,7 @@ export class HttpSource {
 
 export function makeFutureHTTPDriver(): Driver<any, HttpSource> {
   return function httpDriver(req$: MemoryStream<DriverInput> ) {
-    const resp$$ = req$.map(streamFromFuture);
+    const resp$$ = req$.map(streamFromFutureForDriver);
     const mainSource = HttpSource.of(resp$$);
     // Kick it off
     resp$$.subscribe({

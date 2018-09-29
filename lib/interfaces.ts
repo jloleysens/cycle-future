@@ -1,4 +1,4 @@
-import { Future } from 'fluture';
+import {Future} from 'fluture';
 
 export interface DriverInput {
   future: Future<any, any>,

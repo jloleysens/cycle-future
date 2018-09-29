@@ -1,12 +1,11 @@
-import {streamFromFuture, makeFutureHTTPDriver, HttpSource} from './'
+import {streamFromFutureForDriver, makeFutureHTTPDriver, HttpSource} from './index'
 import ava from 'ava';
 import {isFuture, Future} from 'fluture';
 import {Stream} from 'xstream';
 
-ava('streamFromFuture', t => {
-
+ava('streamFromFutureForDriver', t => {
   const f = Future.of(null);
-  const stream = streamFromFuture({future: f, category: 'test'});
+  const stream = streamFromFutureForDriver({future: f, category: 'test'});
 
   t.true(isFuture(f), 'f is a future');
   t.true(stream instanceof Stream, 'we have a stream from a future');

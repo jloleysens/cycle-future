@@ -1,12 +1,9 @@
-import { Cancel } from "fluture";
-import xs, { Producer } from "xstream";
-import { adapt } from "@cycle/run/lib/adapt";
-import { DriverInput } from './interfaces';
+import {Cancel, Future} from "fluture";
+import xs, {Producer} from "xstream";
+import {adapt} from "@cycle/run/lib/adapt";
+import {DriverInput} from './interfaces';
 
-export const streamFromFuture = (
-  config: DriverInput
-) => {
-  const {future} = config;
+export const streamFromFuture = <L = any, R = L>(future: Future<L, R>) => {
   let ref: Cancel;
 
   const futureProducer: Producer<any> = {
@@ -36,6 +33,14 @@ export const streamFromFuture = (
   });
 
   f$ = adapt(f$);
+
+  return f$;
+};
+
+export const streamFromFutureForDriver = (config: DriverInput) => {
+  const {future} = config;
+
+  const f$ = streamFromFuture(future);
 
   Object.defineProperty(f$, "category", {
     value: config.category,
