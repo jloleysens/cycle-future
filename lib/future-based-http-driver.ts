@@ -9,7 +9,7 @@ export class HttpSource {
     private _resp$$: Stream<MemoryStream<any> & { category: string }>
   ) {}
 
-  select(category: string): Stream<MemoryStream<any>> {
+  select<T = any>(category: string): Stream<MemoryStream<T>> {
     return adapt(this._resp$$.filter(r$ => r$.category == category));
   }
 

@@ -11,12 +11,11 @@
     "build": "tsc"
   },
   "dependencies": {
-    "fluture": "8.0.2"
+    "@cycle/run": "5.2.0",
+    "fluture": "8.0.2",
+    "xstream": "10.x || 11.x"
   },
-  "peerDependencies": {
-    "@cycle/run": "4.4.0",
-    "xstream": "11.7.0"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "ava": "0.25.0",
     "ava-ts": "0.24.6",
